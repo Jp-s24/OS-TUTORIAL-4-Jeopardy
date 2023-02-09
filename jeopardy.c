@@ -36,14 +36,34 @@ int main(int argc, char *argv[])
 
     // Display the game introduction and initialize the questions
     initialize_game();
+    
+    printf("Welcome to Jeopardy!\n");
+    printf("Please enter your names");
+    
+    for (int i = 0; i<NUM_PLAYERS; i++){
+    	printf("Player %d :" i+1){
+    		scanf("%s", players[i].name, 256);
+    		printf("\n");
+    		update_score(players, NUM_PLAYERS, players[i].name, 0);
+    	}
+    }
 
     // Prompt for players names
     
     // initialize each of the players in the array
 
     // Perform an infinite loop getting command input from users until game ends
+    char[256] temp;
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
+    while(player_exists(players, NUM_PLAYERS, temp) == false){
+    	printf("Who's board is it: ");
+    	scanf("%s", temp, 256);
+    	if (player_exists(players, NUM_PLAYERS, temp) == false){
+    		printf("Im sorry this player does not exist");
+    	}
+    }
+    
         // Call functions from the questions and players source files
 
         // Execute the game until all questions are answered
