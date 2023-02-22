@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     char answer[256];
     int answered = 0;
     
-    while(player_exists(players, NUM_PLAYERS, temp) == false){
+    while(answered < 12){
     	printf("Who's board is it: ");
     	scanf("%s", temp);
     	if (player_exists(players, NUM_PLAYERS, temp) == false){
@@ -81,12 +81,16 @@ int main(int argc, char *argv[])
     	}
     	
     	display_question(cat, value);
-    	printf("\nAnswer: ");
-    	scanf("%s", answer);
-    	printf("%d", valid_answer(cat, value, answer));
+    	printf("Answer: ");
+    	scanf(" %[^\n]s", answer);
     	if (valid_answer(cat, value, answer)){
-    		printf("Correct! you get %d points", value);
+    		printf("Correct! you get %d points\n", value);
     		update_score(players, NUM_PLAYERS, temp, value);
+    		answered++;
+    	}
+    	else{
+    		printf("Incorrect\n");
+    		answered++;
     	}
     	
     	

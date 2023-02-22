@@ -24,7 +24,7 @@ void initialize_game(void)
     questions[0].answered = false;
 
     strcpy(questions[1].category, "celebrities");
-    strcpy(questions[1].question, "It May not be much but it is 'blank' work");
+    strcpy(questions[1].question, "Star of the Mission Impossible series");
     strcpy(questions[1].answer, "Tom Cruise");
     questions[1].value = 200;
     questions[1].answered = false;
@@ -143,12 +143,11 @@ bool valid_answer(char *category, int value, char *answer)
     for (int i = 0; i < 12; i++) {
         if (strcmp(questions[i].category, category) == 0 && questions[i].value == value) {
             if (strcmp(questions[i].answer, answer) == 0) {
-
+            
                 return true;
 
             }
             else {
-
                 check = false;
             }
         }
