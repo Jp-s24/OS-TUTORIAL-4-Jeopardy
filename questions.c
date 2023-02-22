@@ -180,7 +180,7 @@ bool already_answered(char *category, int value)
             }
         }
 
-        return complete;
+        return true;
     }
 }
 
