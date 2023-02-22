@@ -41,11 +41,10 @@ int main(int argc, char *argv[])
     printf("Please enter your names");
     
     for (int i = 0; i<NUM_PLAYERS; i++){
-    	printf("Player %d :" i+1){
-    		scanf("%s", players[i].name, 256);
-    		printf("\n");
-    		update_score(players, NUM_PLAYERS, players[i].name, 0);
-    	}
+    	printf("Player %d :", i+1);
+    	scanf("%s", players[i].name);
+    	printf("\n");
+    	update_score(players, NUM_PLAYERS, players[i].name, 0);
     }
 
     // Prompt for players names
@@ -53,15 +52,29 @@ int main(int argc, char *argv[])
     // initialize each of the players in the array
 
     // Perform an infinite loop getting command input from users until game ends
-    char[256] temp;
+    char temp[256];
+    
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
+    char cat[256];
+    int value = 0;
+    char answer[256];
+    int answered = 0;
+    
     while(player_exists(players, NUM_PLAYERS, temp) == false){
     	printf("Who's board is it: ");
-    	scanf("%s", temp, 256);
+    	scanf("%s", temp);
     	if (player_exists(players, NUM_PLAYERS, temp) == false){
     		printf("Im sorry this player does not exist");
     	}
+    	
+    	printf("Ok %s, pick your category!", temp);
+    	display_categories();
+    	printf("Category: ");
+    	scanf("%s", cat);
+    	printf("\n");
+    	printf("Value: ");
+    	scanf("%d", &value);
     }
     
         // Call functions from the questions and players source files

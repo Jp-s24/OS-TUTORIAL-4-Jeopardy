@@ -17,75 +17,75 @@ Liam Rea 100743012>
 void initialize_game(void)
 {
     // initialize each question struct and assign it to the questions array
-    strcpy_s(questions[0].category, sizeof("celebrities"), "celebrities");
-    strcpy_s(questions[0].question, sizeof("This character was famous for pirates of the caribbean") , "This character was famous for pirates of the caribbean");
-    strcpy_s(questions[0].answer, sizeof("Johnny Deep"), "Johnny depp");
+    strcpy(questions[0].category, "celebrities");
+    strcpy(questions[0].question, "This character was famous for pirates of the caribbean");
+    strcpy(questions[0].answer, "Johnny depp");
     questions[0].value = 100;
     questions[0].answered = false;
 
-    strcpy_s(questions[1].category, sizeof("celebrities"), "celebrities");
-    strcpy_s(questions[1].question, sizeof("Which actor is known for the Mission Impossible film series?"), "It May not be much but it is 'blank' work");
-    strcpy_s(questions[1].answer, sizeof("Tom Cruise"), "Tom Cruise");
+    strcpy(questions[1].category, "celebrities");
+    strcpy(questions[1].question, "It May not be much but it is 'blank' work");
+    strcpy(questions[1].answer, "Tom Cruise");
     questions[1].value = 200;
     questions[1].answered = false;
 
-    strcpy_s(questions[2].category, sizeof("celebrities"), "celebrities");
-    strcpy_s(questions[2].question, sizeof("This famous rapper sings the song God's Plan"), "This famous rapper sings the song God's Plan");
-    strcpy_s(questions[2].answer, sizeof("drake"), "drake");
+    strcpy(questions[2].category, "celebrities");
+    strcpy(questions[2].question, "This famous rapper sings the song God's Plan");
+    strcpy(questions[2].answer, "drake");
     questions[2].value = 300;
     questions[2].answered = false;
 
-    strcpy_s(questions[3].category, sizeof("celebrities"), "celebrities");
-    strcpy_s(questions[3].question, sizeof("Which actor was the first spiderman?"), "Which actor was the first spiderman?");
-    strcpy_s(questions[3].answer, sizeof("Tobey Maguire"), "Tobey Maguire");
+    strcpy(questions[3].category, "celebrities");
+    strcpy(questions[3].question, "Which actor was the first spiderman?");
+    strcpy(questions[3].answer, "Tobey Maguire");
     questions[3].value = 400;
     questions[3].answered = false;
 
-    strcpy_s(questions[4].category, sizeof("animals"), "animals");
-    strcpy_s(questions[4].question, sizeof("What is the fastest animal?"), "What is the fastest animal?");
-    strcpy_s(questions[4].answer, sizeof("cheetah"), "cheetah");
+    strcpy(questions[4].category, "animals");
+    strcpy(questions[4].question, "What is the fastest animal?");
+    strcpy(questions[4].answer, "cheetah");
     questions[4].value = 100;
     questions[4].answered = false;
 
-    strcpy_s(questions[5].category, sizeof("animals"), "animals");
-    strcpy_s(questions[5].question, sizeof("What is the animal featured in the Curious George Movie?"), "What is the fastest animal?");
-    strcpy_s(questions[5].answer, sizeof("Monkey"), "Monkey");
+    strcpy(questions[5].category, "animals");
+    strcpy(questions[5].question, "What is the fastest animal?");
+    strcpy(questions[5].answer, "Monkey");
     questions[5].value = 200;
     questions[5].answered = false;
 
-      strcpy_s(questions[6].category, sizeof("animals"), "animals");
-    strcpy_s(questions[6].question, sizeof("Which animal is famous in Australia?"), "Which animal is famous in Australia?");
-    strcpy_s(questions[6].answer, sizeof("kangaroo"), "kangaroo");
+      strcpy(questions[6].category, "animals");
+    strcpy(questions[6].question, "Which animal is famous in Australia?");
+    strcpy(questions[6].answer, "kangaroo");
     questions[6].value = 300;
     questions[6].answered = false;
 
-    strcpy_s(questions[7].category, sizeof("animals"), "animals");
-    strcpy_s(questions[7].question, sizeof("This animal has a posion bite with venom"), "This animal has a posion bite with venom");
-    strcpy_s(questions[7].answer, sizeof("snake"), "snake");
+    strcpy(questions[7].category, "animals");
+    strcpy(questions[7].question, "This animal has a posion bite with venom");
+    strcpy(questions[7].answer, "snake");
     questions[7].value = 400;
     questions[7].answered = false;
 
-    strcpy_s(questions[8].category, sizeof("sports"), "sports");
-    strcpy_s(questions[8].question, sizeof("Which country hosted the world cup in 2018?"), "Which country hosted the world cup in 2018?");
-    strcpy_s(questions[8].answer, sizeof("Russia"), "Russia");
+    strcpy(questions[8].category, "sports");
+    strcpy(questions[8].question, "Which country hosted the world cup in 2018?");
+    strcpy(questions[8].answer, "Russia");
     questions[8].value = 100;
     questions[8].answered = false;
 
-    strcpy_s(questions[9].category, sizeof("sports"), "sports");
-    strcpy_s(questions[9].question, sizeof("Which country won the world cup in 2018?"), "Which country hosted the world cup in 2018?");
-    strcpy_s(questions[9].answer, sizeof("France"), "France");
+    strcpy(questions[9].category, "sports");
+    strcpy(questions[9].question, "Which country hosted the world cup in 2018?");
+    strcpy(questions[9].answer, "France");
     questions[9].value = 200;
     questions[9].answered = false;
 
-    strcpy_s(questions[10].category, sizeof("sports"), "sports");
-    strcpy_s(questions[10].question, sizeof("Which basketball player has the most regular season points in the NBA?"), "Which basketball player has the most regular season points in the NBA?");
-    strcpy_s(questions[10].answer, sizeof("Lebron James"), "Lebron James");
+    strcpy(questions[10].category, "sports");
+    strcpy(questions[10].question, "Which basketball player has the most regular season points in the NBA?");
+    strcpy(questions[10].answer, "Lebron James");
     questions[10].value = 300;
     questions[10].answered = false;
 
-    strcpy_s(questions[11].category, sizeof("sports"), "sports");
-    strcpy_s(questions[11].question, sizeof("Which Nba team won the championship in 2019?"), "Which Nba team won the championship in 2019?");
-    strcpy_s(questions[11].answer, sizeof("Toronto Raptors"), "Toronto Raptors");
+    strcpy(questions[11].category, "sports");
+    strcpy(questions[11].question, "Which Nba team won the championship in 2019?");
+    strcpy(questions[11].answer, "Toronto Raptors");
     questions[11].value = 400;
     questions[11].answered = false;
 }
