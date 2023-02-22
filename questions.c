@@ -144,7 +144,7 @@ bool valid_answer(char *category, int value, char *answer)
         if (strcmp(questions[i].category, category) == 0 && questions[i].value == value) {
             if (strcmp(questions[i].answer, answer) == 0) {
 
-                check = true;
+                return true;
 
             }
             else {

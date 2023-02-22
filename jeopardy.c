@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     initialize_game();
     
     printf("Welcome to Jeopardy!\n");
-    printf("Please enter your names");
+    printf("Please enter your names\n");
     
     for (int i = 0; i<NUM_PLAYERS; i++){
     	printf("Player %d :", i+1);
@@ -54,8 +54,6 @@ int main(int argc, char *argv[])
     // Perform an infinite loop getting command input from users until game ends
     char temp[256];
     
-    while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
-    {
     char cat[256];
     int value = 0;
     char answer[256];
@@ -65,17 +63,33 @@ int main(int argc, char *argv[])
     	printf("Who's board is it: ");
     	scanf("%s", temp);
     	if (player_exists(players, NUM_PLAYERS, temp) == false){
-    		printf("Im sorry this player does not exist");
+    		printf("Im sorry this player does not exist\n");
+    		continue;
     	}
     	
-    	printf("Ok %s, pick your category!", temp);
+    	printf("Ok %s, pick your category and value!\n", temp);
     	display_categories();
     	printf("Category: ");
     	scanf("%s", cat);
     	printf("\n");
     	printf("Value: ");
     	scanf("%d", &value);
-    }
+    	
+    	if (already_answered(cat, value)){
+    		printf("This has already been answered!");
+    		continue;
+    	}
+    	
+    	display_question(cat, value);
+    	printf("\nAnswer: ");
+    	scanf("%s", answer);
+    	printf("%d", valid_answer(cat, value, answer));
+    	if (valid_answer(cat, value, answer)){
+    		printf("Correct! you get %d points", value);
+    		update_score(players, NUM_PLAYERS, temp, value);
+    	}
+    	
+    	
     
         // Call functions from the questions and players source files
 
