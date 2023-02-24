@@ -54,6 +54,12 @@ int main(int argc, char* argv[])
     }
 
      //Perform an infinite loop getting command input from users until game ends
+	 char temp[256];
+    
+    char cat[256];
+    int value = 0;
+    char answer[256];
+    int answered = 0;
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
         char category[256];
