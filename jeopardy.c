@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     	printf("Player %d :", i+1);
     	scanf("%s", players[i].name);
     	printf("\n");
-    	update_score(players, NUM_PLAYERS, players[i].name, 0);
+    	players[i].score = 0;
     }
 
     // Prompt for players names
@@ -113,7 +113,7 @@ int main(int argc, char *argv[])
     
     for (int i = 0; i < NUM_PLAYERS; i++){
     	player largest;
-    	largest.score = 0;
+    	largest.score = -1;
     	for(int j = 0; j < NUM_PLAYERS; j++){
     		if(players[j].score > largest.score){
     		
