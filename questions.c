@@ -84,13 +84,13 @@ void initialize_game(void)
 
     strcpy(questions[10].category, "sports");
     strcpy(questions[10].question, "Which basketball player has the most regular season points in the NBA?");
-    strcpy(questions[10].answer, "Lebron");
+    strcpy(questions[10].answer, "Lebron James");
     questions[10].value = 300;
     questions[10].answered = false;
 
     strcpy(questions[11].category, "sports");
     strcpy(questions[11].question, "Which Nba team won the championship in 2019?");
-    strcpy(questions[11].answer, "Raptors");
+    strcpy(questions[11].answer, "Toronto Raptors");
     questions[11].value = 400;
     questions[11].answered = false;
 }

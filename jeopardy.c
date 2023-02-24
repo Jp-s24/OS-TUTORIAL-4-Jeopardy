@@ -23,7 +23,7 @@ Faisal Alsheet 100639174
 #define NUM_PLAYERS 4
 
 // Put global environment variables here
-extern question questions[NUM_QUESTIONS];
+
 // Processes the answer from the user containing what is or who is and tokenizes it to retrieve the answer.
 void tokenize(char *input, char **tokens);
 
@@ -47,9 +47,9 @@ int main(int argc, char *argv[])
     
     for (int i = 0; i<NUM_PLAYERS; i++){
     	printf("Player %d :", i+1);
-        if (scanf("%s", players[i].name, 256) == 1)
-            printf("\n");
-    	update_score(players, NUM_PLAYERS, players[i].name, 0);
+    	scanf("%s", players[i].name);
+    	printf("\n");
+    	players[i].score = 0;
     }
 
     // Prompt for players names
@@ -63,9 +63,7 @@ int main(int argc, char *argv[])
     int value = 0;
     char answer[256];
     int answered = 0;
-
-while(fgets(buffer, BUFFER_LEN, stdin) != NULL)
-{
+    
     while(answered < 12){
     	printf("Who's board is it: ");
     	scanf("%s", temp);
@@ -74,46 +72,40 @@ while(fgets(buffer, BUFFER_LEN, stdin) != NULL)
     		continue;
     	}
     	
-        for (int i = 0; i < NUM_PLAYERS; i++) {
-            printf("Ok %s, pick your category and value!\n", temp);
-            display_categories();
-            printf("Category: ");
-            scanf("%s", cat);
-            printf("\n");
-            printf("Value: ");
-            scanf("%d", &value);
     	
-            while (already_answered(cat, value)) {
-                    printf("Sorry! Someone already answered this question!\n");
-                    printf("\n");
-                    printf("%s, please enter a category, then enter the value of the question\n", players[i].name);
-                    printf("\n");
-                    printf("Category: ");
-                    scanf("%s", &cat);
-                        printf("\n");
-                    printf("Value: ");
-                    scanf("%d", &value);
-                        printf("\n");
-                }
+    	printf("Ok %s, pick your category and value!\n", temp);
+    	display_categories();
+    	printf("Category: ");
+    	scanf("%s", cat);
+    	printf("\n");
+    	printf("Value: ");
+    	scanf("%d", &value);
+    	
+    	if (already_answered(cat, value)){
+    		printf("This has already been answered!\n");
+    		continue;
+    	}
     	
     	display_question(cat, value);
     	printf("Answer: ");
     	scanf(" %[^\n]s", answer);
     	if (valid_answer(cat, value, answer)){
     		printf("Correct! you get %d points\n", value);
-            question_answered(cat, value);
-            answered++;
-            update_score(players, NUM_PLAYERS, players[i].name, players[i].score + value);
+    		update_score(players, NUM_PLAYERS, temp, value);
+    		answered++;
     		
+    		printf("%s: %d \n", players[0].name, players[0].score);
+    		printf("%s: %d \n", players[1].name, players[1].score);
+    		printf("%s: %d \n", players[2].name, players[2].score);
+    		printf("%s: %d \n", players[3].name, players[3].score);
     	}
     	else{
     		printf("Incorrect\n");
     		answered++;
+            
     	}
-
-        display_results(players, NUM_PLAYERS);
-
     	
+    	question_answered(cat, value);	
     	
     
         // Call functions from the questions and players source files
@@ -122,15 +114,32 @@ while(fgets(buffer, BUFFER_LEN, stdin) != NULL)
 
         // Display the final results and exit
     }
-}
-    break; 
-}
-return EXIT_SUCCESS;
-}
-
-
-void display_results(player* players, int num_players) {
-    for (int i = 0; i < num_players; i++) {
-        printf("Player: %s, Score: %d\n", players[i].name, players[i].score);
+    
+    
+    player sorted[NUM_PLAYERS];
+    for (int i = 0; i < NUM_PLAYERS; i++){
+    	sorted[i].score = 0;
+    	
     }
+    
+    for (int i = 0; i < NUM_PLAYERS; i++){
+    	player largest;
+    	largest.score = -1;
+    	for(int j = 0; j < NUM_PLAYERS; j++){
+    		if(players[j].score > largest.score){
+    		
+    			if(player_exists(sorted, NUM_PLAYERS, players[j].name) == false){
+    				largest = players[j];
+    			}
+    		}
+    	}
+    	sorted[i] = largest;
+    }
+    
+    printf("In 1st place, %s, with %d points!\n", sorted[0].name, sorted[0].score);
+    printf("In 2nd place, %s, with %d points!\n", sorted[1].name, sorted[1].score);
+    printf("In 3rd place, %s, with %d points!\n", sorted[2].name, sorted[2].score);
+    printf("In 4th place, %s, with %d points!\n", sorted[3].name, sorted[3].score);
+    
+    return EXIT_SUCCESS;
 }
