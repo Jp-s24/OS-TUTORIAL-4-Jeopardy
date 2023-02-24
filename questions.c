@@ -2,9 +2,12 @@
  * Tutorial 4 Jeopardy Project for SOFE 3950U / CSCI 3020U: Operating Systems
  *
  * Copyright (C) 2015, 
-<Jean-Paul Saliba 100741759
+<
+Jean-Paul Saliba 100741759
 Jalen Duggan 100713294
-Liam Rea 100743012>
+Liam Rea 100743012
+Faisal Alsheet 100639174
+>
  * All rights reserved.
  *
  */
@@ -13,19 +16,21 @@ Liam Rea 100743012>
 #include <string.h>
 #include "questions.h"
 
+question questions[NUM_QUESTIONS];
+int delta = 1;
 // Initializes the array of questions for the game
 void initialize_game(void)
 {
     // initialize each question struct and assign it to the questions array
     strcpy(questions[0].category, "celebrities");
-    strcpy(questions[0].question, "This character was famous for pirates of the caribbean");
-    strcpy(questions[0].answer, "Johnny depp");
+    strcpy(questions[0].question, "Firstname of the actor whose character was famous for pirates of the caribbean");
+    strcpy(questions[0].answer, "Johnny");
     questions[0].value = 100;
     questions[0].answered = false;
 
     strcpy(questions[1].category, "celebrities");
-    strcpy(questions[1].question, "Star of the Mission Impossible series");
-    strcpy(questions[1].answer, "Tom Cruise");
+    strcpy(questions[1].question, "Firstname of the star of the Mission Impossible series");
+    strcpy(questions[1].answer, "Tom");
     questions[1].value = 200;
     questions[1].answered = false;
 
@@ -36,8 +41,8 @@ void initialize_game(void)
     questions[2].answered = false;
 
     strcpy(questions[3].category, "celebrities");
-    strcpy(questions[3].question, "Which actor was the first spiderman?");
-    strcpy(questions[3].answer, "Tobey Maguire");
+    strcpy(questions[3].question, "Firstname of the actor who was the first spiderman?");
+    strcpy(questions[3].answer, "Toby");
     questions[3].value = 400;
     questions[3].answered = false;
 
@@ -48,8 +53,8 @@ void initialize_game(void)
     questions[4].answered = false;
 
     strcpy(questions[5].category, "animals");
-    strcpy(questions[5].question, "What is the fastest animal?");
-    strcpy(questions[5].answer, "Monkey");
+    strcpy(questions[5].question, "Which animal acts a lot like a human?");
+    strcpy(questions[5].answer, "monkey");
     questions[5].value = 200;
     questions[5].answered = false;
 
@@ -72,20 +77,20 @@ void initialize_game(void)
     questions[8].answered = false;
 
     strcpy(questions[9].category, "sports");
-    strcpy(questions[9].question, "Which country hosted the world cup in 2018?");
+    strcpy(questions[9].question, "Which country won the world cup in 2018?");
     strcpy(questions[9].answer, "France");
     questions[9].value = 200;
     questions[9].answered = false;
 
     strcpy(questions[10].category, "sports");
     strcpy(questions[10].question, "Which basketball player has the most regular season points in the NBA?");
-    strcpy(questions[10].answer, "Lebron James");
+    strcpy(questions[10].answer, "Lebron");
     questions[10].value = 300;
     questions[10].answered = false;
 
     strcpy(questions[11].category, "sports");
     strcpy(questions[11].question, "Which Nba team won the championship in 2019?");
-    strcpy(questions[11].answer, "Toronto Raptors");
+    strcpy(questions[11].answer, "Raptors");
     questions[11].value = 400;
     questions[11].answered = false;
 }
@@ -135,7 +140,7 @@ void display_question(char *category, int value)
 }
 
 // Returns true if the answer is correct for the question for that category and dollar value
-bool valid_answer(char *category, int value, char *answer)
+bool valid_answer(char category[], int value, char answer[])
 {
     bool check = false; 
 
@@ -158,7 +163,7 @@ bool valid_answer(char *category, int value, char *answer)
     // Look into string comparison functions
 }
 
-bool already_answered(char *category, int value)
+bool already_answered(char category[], int value)
 {
     {
         bool complete = false;
@@ -180,11 +185,11 @@ bool already_answered(char *category, int value)
             }
         }
 
-        return true;
+        return complete;
     }
 }
 
-void question_answered(char *category, int value)
+void question_answered(char category[], int value)
 {
     for (int i = 0; i < 12; i++) {
 
