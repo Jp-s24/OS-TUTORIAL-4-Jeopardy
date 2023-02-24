@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     char cat[256];
     int value = 0;
     char answer[256];
-    int answered = 0;
+    int answered = 12;
     
     while(answered < 12){
     	printf("Who's board is it: ");
@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
     		printf("Im sorry this player does not exist\n");
     		continue;
     	}
+    	
     	
     	printf("Ok %s, pick your category and value!\n", temp);
     	display_categories();
@@ -76,7 +77,7 @@ int main(int argc, char *argv[])
     	scanf("%d", &value);
     	
     	if (already_answered(cat, value)){
-    		printf("This has already been answered!");
+    		printf("This has already been answered!\n");
     		continue;
     	}
     	
@@ -93,6 +94,7 @@ int main(int argc, char *argv[])
     		answered++;
     	}
     	
+    	question_answered(cat, value);	
     	
     
         // Call functions from the questions and players source files
@@ -101,5 +103,32 @@ int main(int argc, char *argv[])
 
         // Display the final results and exit
     }
+    
+    
+    player sorted[NUM_PLAYERS];
+    for (int i = 0; i < NUM_PLAYERS; i++){
+    	sorted[i].score = 0;
+    	players[i].score = 100+i;
+    }
+    
+    for (int i = 0; i < NUM_PLAYERS; i++){
+    	player largest;
+    	largest.score = 0;
+    	for(int j = 0; j < NUM_PLAYERS; j++){
+    		if(players[j].score > largest.score){
+    		
+    			if(player_exists(sorted, NUM_PLAYERS, players[j].name) == false){
+    				largest = players[j];
+    			}
+    		}
+    	}
+    	sorted[i] = largest;
+    }
+    
+    printf("In 1st place, %s, with %d points!\n", sorted[0].name, sorted[0].score);
+    printf("In 2nd place, %s, with %d points!\n", sorted[1].name, sorted[1].score);
+    printf("In 3rd place, %s, with %d points!\n", sorted[2].name, sorted[2].score);
+    printf("In 4th place, %s, with %d points!\n", sorted[3].name, sorted[3].score);
+    
     return EXIT_SUCCESS;
 }
