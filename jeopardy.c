@@ -88,6 +88,11 @@ int main(int argc, char *argv[])
     		printf("Correct! you get %d points\n", value);
     		update_score(players, NUM_PLAYERS, temp, value);
     		answered++;
+    		
+    		printf("%s: %d \n", players[0].name, players[0].score);
+    		printf("%s: %d \n", players[1].name, players[1].score);
+    		printf("%s: %d \n", players[2].name, players[2].score);
+    		printf("%s: %d \n", players[3].name, players[3].score);
     	}
     	else{
     		printf("Incorrect\n");
