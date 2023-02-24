@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     char cat[256];
     int value = 0;
     char answer[256];
-    int answered = 12;
+    int answered = 0;
     
     while(answered < 12){
     	printf("Who's board is it: ");
@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
     player sorted[NUM_PLAYERS];
     for (int i = 0; i < NUM_PLAYERS; i++){
     	sorted[i].score = 0;
-    	players[i].score = 100+i;
+    	
     }
     
     for (int i = 0; i < NUM_PLAYERS; i++){
