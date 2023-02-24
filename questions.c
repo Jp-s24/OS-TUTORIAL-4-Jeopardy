@@ -23,26 +23,26 @@ void initialize_game(void)
 {
     // initialize each question struct and assign it to the questions array
     strcpy(questions[0].category, "celebrities");
-    strcpy(questions[0].question, "Firstname of the actor whose character was famous for pirates of the caribbean");
-    strcpy(questions[0].answer, "Johnny");
+    strcpy(questions[0].question, "The name of the actor whose character was famous for pirates of the caribbean");
+    strcpy(questions[0].answer, "Johnny Depp");
     questions[0].value = 100;
     questions[0].answered = false;
 
     strcpy(questions[1].category, "celebrities");
-    strcpy(questions[1].question, "Firstname of the star of the Mission Impossible series");
-    strcpy(questions[1].answer, "Tom");
+    strcpy(questions[1].question, "The name of the star of the Mission Impossible series");
+    strcpy(questions[1].answer, "Tom Cruise");
     questions[1].value = 200;
     questions[1].answered = false;
 
     strcpy(questions[2].category, "celebrities");
     strcpy(questions[2].question, "This famous rapper sings the song God's Plan");
-    strcpy(questions[2].answer, "drake");
+    strcpy(questions[2].answer, "Drake");
     questions[2].value = 300;
     questions[2].answered = false;
 
     strcpy(questions[3].category, "celebrities");
-    strcpy(questions[3].question, "Firstname of the actor who was the first spiderman?");
-    strcpy(questions[3].answer, "Toby");
+    strcpy(questions[3].question, "Name of the actor who was the first spiderman?");
+    strcpy(questions[3].answer, "Toby Maguire");
     questions[3].value = 400;
     questions[3].answered = false;
 
